@@ -67,9 +67,9 @@ public class ProdutoAlterarServiceTest {
         RuntimeException thrown = assertThrows(RuntimeException.class, () -> driver.alterar(produto));
 
         assertEquals("Preço Inválido", thrown.getMessage());
-
-
     }
+
+
 
 
 }

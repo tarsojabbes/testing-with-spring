@@ -5,8 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public class ProdutoVolatilRepository implements ProdutoRepository<Produto, Long> {
-
+@Repository
+public class ProdutoStubRepository implements ProdutoRepository<Produto, Long>{
     @Override
     public Produto save(Produto produto) {
         return null;
@@ -24,6 +24,15 @@ public class ProdutoVolatilRepository implements ProdutoRepository<Produto, Long
 
     @Override
     public Produto update(Produto produto) {
+        if (produto.getId() == 10L) {
+            return Produto.builder()
+                    .id(10L)
+                    .codigoBarra("31256289102")
+                    .nome("Chiclete")
+                    .fabricante("Empresa Dez Alterado")
+                    .preco(500.00)
+                    .build();
+        }
         return null;
     }
 
