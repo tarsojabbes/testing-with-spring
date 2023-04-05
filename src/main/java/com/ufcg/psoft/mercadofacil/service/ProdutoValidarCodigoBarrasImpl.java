@@ -8,6 +8,7 @@ public class ProdutoValidarCodigoBarrasImpl implements ProdutoValidarCodigoBarra
     @Override
     public boolean isValidCodigoBarras(Produto p) {
        String codigoBarras = p.getCodigoBarra();
+       if (codigoBarras.length() < 13) {return false;}
        int parte1 = 0;
        for (int i = codigoBarras.length() - 2; i >= 0; i = i - 2) {
            parte1 += Integer.parseInt(String.valueOf(codigoBarras.charAt(i)));

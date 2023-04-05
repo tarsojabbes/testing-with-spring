@@ -5,7 +5,6 @@ import com.ufcg.psoft.mercadofacil.repository.ProdutoRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -36,7 +35,9 @@ public class ProdutoAlterarServiceTest {
                         .fabricante("Empresa 10")
                         .preco(450.00)
                         .build());
+
         produto = produtoRepository.find(10L);
+
         Mockito.when(produtoRepository.update(produto))
                 .thenReturn(Produto.builder()
                         .id(10L)
@@ -62,12 +63,56 @@ public class ProdutoAlterarServiceTest {
     void test02() {
         produto.setPreco(0);
 
-        //Produto resultado = driver.alterar(produto);
-
         RuntimeException thrown = assertThrows(RuntimeException.class, () -> driver.alterar(produto));
 
         assertEquals("Preço Inválido", thrown.getMessage());
     }
+
+    @Test
+    @DisplayName("Quando altero o nome do produto é um nome inválido")
+    void test03() {
+        produto.setNome("");
+
+        RuntimeException thrown = assertThrows(RuntimeException.class, () -> driver.alterar(produto));
+
+        assertEquals("Nome Inválido", thrown.getMessage());
+    }
+
+    @Test
+    @DisplayName("Quando altero o nome do fabricante para um nome válido")
+    void test04(){
+        produto.setFabricante("");
+
+        RuntimeException thrown = assertThrows(RuntimeException.class, () -> driver.alterar(produto));
+
+        assertEquals("Fabricante Inválido", thrown.getMessage());
+    }
+
+    @Test
+    @DisplayName("Quando altero o nome do fabricante para um nome inválido")
+    void test05(){
+        produto.setFabricante("Fabricante Alterado");
+
+        Produto produtoAlterado = driver.alterar(produto);
+
+        assertEquals("Fabricante Alterado", produtoAlterado.getFabricante());
+    }
+
+    @Test
+    @DisplayName("Quando altero o código de barras para um código válido")
+    void test06(){}
+
+    @Test
+    @DisplayName("Quando altero o código de barras para um código inválido")
+    void test07(){}
+
+    @Test
+    @DisplayName("Quando altero o preço do produto para um preço válido")
+    void test08(){}
+
+
+
+
 
 
 

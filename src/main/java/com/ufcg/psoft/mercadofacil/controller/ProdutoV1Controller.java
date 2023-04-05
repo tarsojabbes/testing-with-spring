@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.*;
 public class ProdutoV1Controller {
 
     @Autowired
-    ProdutoAlterarService produtoAtualizarService;
+    ProdutoAlterarService produtoAlterarService;
 
     @PutMapping("/{id}")
     public Produto atualizarProduto(
             @PathVariable Long id,
             @RequestBody Produto produto) {
-        return produtoAtualizarService.alterar(produto);
+        return produtoAlterarService.alterar(produto);
     }
 }

@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 @DisplayName("Teste do repositório do produto")
-public class ProdutoRepositoryTest {
+public class ProdutoPadraoRepositoryTest {
 
     @Autowired
     ProdutoRepository<Produto, Long> driver;
