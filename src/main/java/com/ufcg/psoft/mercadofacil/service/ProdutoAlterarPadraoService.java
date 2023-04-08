@@ -10,6 +10,7 @@ public class ProdutoAlterarPadraoService implements ProdutoAlterarService {
 
     @Autowired
     ProdutoRepository<Produto, Long> produtoRepository;
+    @Autowired
     ProdutoValidarCodigoBarrasImpl validarCodigoBarras;
     @Override
     public Produto alterar(Produto produtoAlterado) {

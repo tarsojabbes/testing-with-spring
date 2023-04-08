@@ -17,7 +17,7 @@ public class ProdutoVolatilStubRepository implements ProdutoRepository<Produto, 
         if (id == 10L) {
             return Produto.builder()
                     .id(10L)
-                    .codigoBarra("123456789")
+                    .codigoBarra("4012345678901")
                     .nome("Produto Dez")
                     .fabricante("Fabricante Dez")
                     .preco(125.36)
