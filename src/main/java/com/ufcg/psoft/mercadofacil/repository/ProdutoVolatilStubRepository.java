@@ -20,7 +20,7 @@ public class ProdutoVolatilStubRepository implements ProdutoRepository<Produto, 
                     .codigoBarra("4012345678901")
                     .nome("Produto Dez")
                     .fabricante("Fabricante Dez")
-                    .preco(125.36)
+                    .preco(150)
                     .build();
         }
         return null;
@@ -36,9 +36,9 @@ public class ProdutoVolatilStubRepository implements ProdutoRepository<Produto, 
         if (produto.getId() == 10L) {
             return Produto.builder()
                     .id(10L)
-                    .codigoBarra("123456789")
+                    .codigoBarra("4012345678901")
                     .nome("Produto Dez Alterado")
-                    .fabricante("Fabricante Dez")
+                    .fabricante("Fabricante Dez Alterado")
                     .preco(125.36)
                     .build();
         }
